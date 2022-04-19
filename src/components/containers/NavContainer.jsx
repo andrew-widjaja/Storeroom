@@ -1,4 +1,12 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  increment,
+  decrement,
+  reset,
+  incrementByAmount,
+  setDisplay,
+} from './displaySlice';
 import { Menu, Avatar, Affix } from 'antd';
 import {
   MailOutlined,
@@ -10,28 +18,23 @@ import {
 const { SubMenu } = Menu;
 
 const NavContainer = (props) => {
-  const [theme, setTheme] = useState('dark');
+  // Redux State
+  const display = useSelector((state) => state.counter.display);
+  const dispatch = useDispatch();
   const [current, setCurrent] = useState(1);
 
-  const changeTheme = (value) => {
-    setTheme(value ? 'dark' : 'light');
-  };
-
   const handleClick = (e) => {
-    console.log('click ', e);
+    console.log('click ', e.key);
     setCurrent(e.key);
+    dispatch(setDisplay(e.key));
   };
 
   return (
     <>
-      {/* <Switch
-        checked={theme === 'dark'}
-        onChange={changeTheme}
-        checkedChildren="Dark"
-        unCheckedChildren="Light"
-      />
-      <br />
-      <br /> */}
+      <section>
+        <p>{display}</p>
+      </section>
+
       <Affix offsetTop={0}>
         <Menu
           theme={'dark'}
@@ -43,10 +46,10 @@ const NavContainer = (props) => {
           mode="inline">
           <Avatar icon={<UserOutlined />} />
           <SubMenu key="sub1" icon={<MailOutlined />} title="Inventory">
-            <Menu.Item key="1">Consumables</Menu.Item>
-            <Menu.Item key="2">Reagents</Menu.Item>
-            <Menu.Item key="3">Cell Lines</Menu.Item>
-            <Menu.Item key="4">Equipment</Menu.Item>
+            <Menu.Item key="consumables">Consumables</Menu.Item>
+            <Menu.Item key="reagents">Reagents</Menu.Item>
+            <Menu.Item key="cells">Cell Lines</Menu.Item>
+            <Menu.Item key="equipment">Equipment</Menu.Item>
           </SubMenu>
           <SubMenu key="sub2" icon={<AppstoreOutlined />} title="Order">
             <Menu.Item key="5">VWR</Menu.Item>

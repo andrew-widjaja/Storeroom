@@ -4,8 +4,8 @@ import React from 'react';
 
 import 'antd/dist/antd.css';
 import './index.css';
-import NavContainer from './components/Nav/NavContainer.jsx';
-import ItemsContainer from './components/Items/ItemsContainer.jsx';
+import NavContainer from './components/containers/NavContainer.jsx';
+import ItemsContainer from './components/containers/ItemsContainer.jsx';
 
 function App() {
   return (

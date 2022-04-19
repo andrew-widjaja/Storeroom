@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card } from 'antd';
 import styled from 'styled-components';
-const ItemsList = () => {
+const ReagentsList = () => {
   const StyledCard = styled(Card)`
     min-width: 25%;
     height: 25vh;
@@ -9,7 +9,7 @@ const ItemsList = () => {
   `;
 
   const item = (
-    <StyledCard hoverable title="Card title" bordered={false}>
+    <StyledCard hoverable title="Reagents" bordered={false}>
       <p>Card content</p>
     </StyledCard>
   );
@@ -28,4 +28,4 @@ const ItemsList = () => {
   );
 };
 
-export default ItemsList;
+export default ReagentsList;

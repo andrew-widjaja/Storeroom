@@ -1,13 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Spin } from 'antd';
-import { SearchBar } from './SearchBar.jsx';
+import { SearchBar } from '../Items/SearchBar.jsx';
 
 import 'antd/dist/antd.css';
-import AddItem from './AddItem.jsx';
-import ItemsList from './ItemsList.jsx';
+import AddItem from '../Items/AddItem.jsx';
+import ConsumablesList from '../Items/ConsumablesList.jsx';
+
+import { useSelector } from 'react-redux';
 
 const ItemsContainer = () => {
+  const display = useSelector((state) => state.counter.count);
+
   const Wrapper = styled.div`
     width: 80vw;
     display: flex;
@@ -26,7 +30,7 @@ const ItemsContainer = () => {
         <SearchBar></SearchBar>
       </div>
 
-      <ItemsList></ItemsList>
+      <ConsumablesList></ConsumablesList>
       <StyledSpin></StyledSpin>
     </Wrapper>
   );
