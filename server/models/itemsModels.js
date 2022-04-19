@@ -18,6 +18,7 @@ const Schema = mongoose.Schema;
 
 const consumableSchema = new Schema({
   name: String,
+  catalog: String,
   supplier: String,
   description: String,
   quantity: Number,
@@ -26,6 +27,7 @@ const Consumable = mongoose.model('Consumable', consumableSchema);
 
 const reagentSchema = new Schema({
   name: String,
+  catalog: String,
   supplier: String,
   description: String,
   quantity: Number,
@@ -34,6 +36,7 @@ const Reagent = mongoose.model('Reagent', reagentSchema);
 
 const cellSchema = new Schema({
   name: String,
+  catalog: String,
   supplier: String,
   species: String,
   description: String,
@@ -43,6 +46,7 @@ const Cell = mongoose.model('Cell', cellSchema);
 
 const equipmentSchema = new Schema({
   name: String,
+  catalog: String,
   supplier: String,
   description: String,
   lastMaintenance: String,

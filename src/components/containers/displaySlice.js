@@ -1,12 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  count: 0,
   display: 'default',
 };
 
 export const displaySlice = createSlice({
-  name: 'counter',
+  name: 'display',
   initialState,
   reducers: {
     setDisplay: (state, action) => {

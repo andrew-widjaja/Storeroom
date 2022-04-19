@@ -17,5 +17,19 @@ itemsController.getConsumables = (req, res, next) => {
       });
     });
 };
+itemsController.getReagents = (req, res, next) => {
+  models.Reagent.find()
+    .exec()
+    .then((reagents) => {
+      res.locals.allReagents = reagents;
+      next();
+    })
+    .catch((err) => {
+      next({
+        code: 500,
+        error: err,
+      });
+    });
+};
 
 module.exports = itemsController;

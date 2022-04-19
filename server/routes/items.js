@@ -8,10 +8,11 @@ router.get('/', (req, res) => {
   res.json('your reached the main page!');
 });
 router.get('/consumables', itemsController.getConsumables, (req, res) => {
-  res.json('here are all of your consumables!');
+  //   res.json('here are all of your consumables!');
+  res.status(200).json(res.locals.allConsumables);
 });
-router.get('/reagents', (req, res) => {
-  res.json('here are all of your reagents!');
+router.get('/reagents', itemsController.getReagents, (req, res) => {
+  res.status(200).json(res.locals.allReagents);
 });
 router.get('/cells', (req, res) => {
   res.json('here are all of your cells!');

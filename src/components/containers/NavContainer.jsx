@@ -19,7 +19,6 @@ const NavContainer = (props) => {
 
   // Change display state depending on category button click
   const handleClick = (e) => {
-    console.log('click ', e.key);
     setCurrent(e.key);
     dispatch(setDisplay(e.key));
   };
