@@ -8,6 +8,8 @@ const ConsumablesList = () => {
     margin: 0.5rem;
   `;
 
+  // Fetch data from MongoDB
+
   const item = (
     <StyledCard hoverable title="Consumables" bordered={false}>
       <p>Card content</p>

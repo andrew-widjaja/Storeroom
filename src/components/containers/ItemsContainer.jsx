@@ -6,11 +6,14 @@ import { SearchBar } from '../Items/SearchBar.jsx';
 import 'antd/dist/antd.css';
 import AddItem from '../Items/AddItem.jsx';
 import ConsumablesList from '../Items/ConsumablesList.jsx';
+import ReagentsList from '../Items/ReagentsList.jsx';
+import CellLinesList from '../Items/CellLinesList.jsx';
+import EquipmentList from '../Items/EquipmentList.jsx';
 
 import { useSelector } from 'react-redux';
 
 const ItemsContainer = () => {
-  const display = useSelector((state) => state.counter.count);
+  const display = useSelector((state) => state.counter.display);
 
   const Wrapper = styled.div`
     width: 80vw;
@@ -30,8 +33,11 @@ const ItemsContainer = () => {
         <SearchBar></SearchBar>
       </div>
 
-      <ConsumablesList></ConsumablesList>
-      <StyledSpin></StyledSpin>
+      {display === 'consumables' && <ConsumablesList></ConsumablesList>}
+      {display === 'reagents' && <ReagentsList></ReagentsList>}
+      {display === 'cells' && <CellLinesList></CellLinesList>}
+      {display === 'equipment' && <EquipmentList></EquipmentList>}
+      {display === 'default' && <StyledSpin></StyledSpin>}
     </Wrapper>
   );
 };

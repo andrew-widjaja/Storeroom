@@ -1,12 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  increment,
-  decrement,
-  reset,
-  incrementByAmount,
-  setDisplay,
-} from './displaySlice';
+import { setDisplay } from './displaySlice';
 import { Menu, Avatar, Affix } from 'antd';
 import {
   MailOutlined,
@@ -18,11 +12,12 @@ import {
 const { SubMenu } = Menu;
 
 const NavContainer = (props) => {
-  // Redux State
-  const display = useSelector((state) => state.counter.display);
   const dispatch = useDispatch();
+
+  // Set state for current selection highlighting
   const [current, setCurrent] = useState(1);
 
+  // Change display state depending on category button click
   const handleClick = (e) => {
     console.log('click ', e.key);
     setCurrent(e.key);
@@ -31,15 +26,10 @@ const NavContainer = (props) => {
 
   return (
     <>
-      <section>
-        <p>{display}</p>
-      </section>
-
       <Affix offsetTop={0}>
         <Menu
           theme={'dark'}
           onClick={handleClick}
-          // style={{ width: 256, height: '100vh', position: 'sticky' }}
           style={{ width: '20vw', height: '100vh', position: 'sticky' }}
           defaultOpenKeys={['sub1']}
           selectedKeys={[current]}
