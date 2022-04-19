@@ -5,15 +5,20 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server/server.js",
-    "build": "webpack --env NODE_ENV=production",
-    "dev": "webpack serve --env NODE_ENV=development --open"
+    "start": "NODE_ENV=production node server/server.js",
+    "build": "NODE_ENV=production webpack",
+    "dev": "concurrently \"cross-env NODE_ENV=development nodemon server/server.js\" \"cross-env NODE_ENV=development webpack serve --open\""
   },
   "author": "Andrew Widjaja",
   "license": "ISC",
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.1",
+    "antd": "^4.19.5",
+    "express": "^4.17.3",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "react-redux": "^8.0.0",
+    "styled-components": "^5.3.5"
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",
