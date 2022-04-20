@@ -21,7 +21,15 @@ const DeleteModal = (props) => {
     });
   }
 
-  return <Button onClick={showConfirm}>Delete</Button>;
+  return (
+    <Button
+      danger
+      type="dashed"
+      onClick={showConfirm}
+      style={{ alignSelf: 'end' }}>
+      Delete
+    </Button>
+  );
 };
 
 export default DeleteModal;

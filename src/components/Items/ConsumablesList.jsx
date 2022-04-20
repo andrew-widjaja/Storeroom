@@ -3,7 +3,8 @@ import { useSelector } from 'react-redux';
 import { Spin } from 'antd';
 import styled from 'styled-components';
 import StyledCard from './StyledCard.jsx';
-import DeleteModal from './DeleteModal.jsx';
+import DeleteModal from '../Modals/DeleteModal.jsx';
+import UpdateItem from '../Modals/UpdateItem.jsx';
 
 import { useGetConsumablesQuery } from '../../services/items.js';
 
@@ -44,10 +45,13 @@ const ConsumablesList = (props) => {
             <p>
               <b>Qty:</b> {item.quantity}
             </p>
-            <DeleteModal
-              name={item.name}
-              id={item._id}
-              category="consumables"></DeleteModal>
+            <div style={{ display: 'flex' }}>
+              <UpdateItem id={item._id}></UpdateItem>
+              <DeleteModal
+                name={item.name}
+                id={item._id}
+                category="consumables"></DeleteModal>
+            </div>
           </StyledCard>
         ))}
     </div>

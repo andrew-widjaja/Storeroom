@@ -42,6 +42,16 @@ export const itemsApi = createApi({
       },
       invalidatesTags: ['Consumable', 'Reagent', 'Equipment', 'Cell'],
     }),
+    updateItem: builder.mutation({
+      query({ id, category, ...body }) {
+        return {
+          url: `${category}/${id}`,
+          method: 'PUT',
+          body,
+        };
+      },
+      invalidatesTags: ['Consumable', 'Reagent', 'Equipment', 'Cell'],
+    }),
   }),
 });
 
@@ -52,4 +62,5 @@ export const {
   useGetCellsQuery,
   useAddItemMutation,
   useDeleteItemMutation,
+  useUpdateItemMutation,
 } = itemsApi;

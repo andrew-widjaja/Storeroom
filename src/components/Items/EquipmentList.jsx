@@ -3,9 +3,10 @@ import { Spin } from 'antd';
 import { EditOutlined } from '@ant-design/icons';
 import styled from 'styled-components';
 import StyledCard from './StyledCard.jsx';
+import UpdateItem from '../Modals/UpdateItem.jsx';
 
 import { useGetEquipmentQuery } from '../../services/items.js';
-import DeleteModal from './DeleteModal.jsx';
+import DeleteModal from '../Modals/DeleteModal.jsx';
 
 const StyledSpin = styled(Spin)`
   margin: 2rem;
@@ -41,10 +42,13 @@ const EquipmentList = () => {
             <p>
               <b>Last maintenance:</b> {item.lastMaintenance}
             </p>
-            <DeleteModal
-              name={item.name}
-              id={item._id}
-              category="equipment"></DeleteModal>
+            <div style={{ display: 'flex' }}>
+              <UpdateItem id={item._id}></UpdateItem>
+              <DeleteModal
+                name={item.name}
+                id={item._id}
+                category="equipment"></DeleteModal>
+            </div>
           </StyledCard>
         ))}
     </div>

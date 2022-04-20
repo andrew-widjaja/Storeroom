@@ -3,6 +3,7 @@ const models = require('../models/itemsModels');
 
 const itemsController = {};
 
+// GET MIDDLEWARE
 itemsController.getConsumables = (req, res, next) => {
   models.Consumable.find()
     .exec()
@@ -59,6 +60,8 @@ itemsController.getCells = (req, res, next) => {
       });
     });
 };
+
+// POST MIDDLEWARE
 itemsController.addConsumable = (req, res, next) => {
   console.log(req.body);
   models.Consumable.create(req.body)
@@ -108,7 +111,7 @@ itemsController.addEquipment = (req, res, next) => {
     });
 };
 
-// Delete handlers
+// DELETE MIDDLEWARE
 itemsController.deleteConsumable = (req, res, next) => {
   const itemToDeleteId = req.params.id;
 
@@ -152,6 +155,60 @@ itemsController.deleteEquipment = (req, res, next) => {
   const itemToDeleteId = req.params.id;
 
   models.Equipment.deleteOne({ _id: itemToDeleteId })
+    .exec()
+    .then(next())
+    .catch((err) => {
+      next({
+        code: 500,
+        error: err,
+      });
+    });
+};
+
+// UPDATE MIDDLEWARE
+itemsController.updateConsumable = (req, res, next) => {
+  const itemToUpdateId = req.params.id;
+
+  models.Consumable.findOneAndUpdate({ _id: itemToUpdateId }, req.body)
+    .exec()
+    .then(next())
+    .catch((err) => {
+      next({
+        code: 500,
+        error: err,
+      });
+    });
+};
+itemsController.updateReagent = (req, res, next) => {
+  const itemToUpdateId = req.params.id;
+
+  models.Reagent.findOneAndUpdate({ _id: itemToUpdateId }, req.body)
+    .exec()
+    .then(next())
+    .catch((err) => {
+      next({
+        code: 500,
+        error: err,
+      });
+    });
+};
+itemsController.updateCell = (req, res, next) => {
+  const itemToUpdateId = req.params.id;
+
+  models.Cell.findOneAndUpdate({ _id: itemToUpdateId }, req.body)
+    .exec()
+    .then(next())
+    .catch((err) => {
+      next({
+        code: 500,
+        error: err,
+      });
+    });
+};
+itemsController.updateEquipment = (req, res, next) => {
+  const itemToUpdateId = req.params.id;
+
+  models.Equipment.findOneAndUpdate({ _id: itemToUpdateId }, req.body)
     .exec()
     .then(next())
     .catch((err) => {

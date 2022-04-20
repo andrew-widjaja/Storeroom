@@ -4,7 +4,7 @@ import { Affix, Spin } from 'antd';
 
 import 'antd/dist/antd.css';
 import { SearchBar } from '../Items/SearchBar.jsx';
-import AddItem from '../Items/AddItem.jsx';
+import AddItem from '../Modals/AddItem.jsx';
 import ConsumablesList from '../Items/ConsumablesList.jsx';
 import ReagentsList from '../Items/ReagentsList.jsx';
 import CellLinesList from '../Items/CellLinesList.jsx';

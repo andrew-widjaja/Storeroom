@@ -1,9 +1,11 @@
+const { Router } = require('express');
 const express = require('express');
 
 const itemsController = require('../controllers/itemsController');
 
 const router = express.Router();
 
+// GET ROUTES
 router.get('/', (req, res) => {
   res.json('your reached the main page!');
 });
@@ -20,6 +22,7 @@ router.get('/equipment', itemsController.getEquipment, (req, res) => {
   res.status(200).json(res.locals.allEquipment);
 });
 
+// POST ROUTES
 router.post('/consumables', itemsController.addConsumable, (req, res) => {
   res.sendStatus(200);
 });
@@ -33,6 +36,7 @@ router.post('/equipment', itemsController.addEquipment, (req, res) => {
   res.sendStatus(200);
 });
 
+// DELETE ROUTES
 router.delete(
   '/consumables/:id',
   itemsController.deleteConsumable,
@@ -47,6 +51,20 @@ router.delete('/cells/:id', itemsController.deleteCell, (req, res) => {
   res.sendStatus(200);
 });
 router.delete('/equipment/:id', itemsController.deleteEquipment, (req, res) => {
+  res.sendStatus(200);
+});
+
+// UPDATE ROUTES
+router.put('/consumables/:id', itemsController.updateConsumable, (req, res) => {
+  res.sendStatus(200);
+});
+router.put('/reagents/:id', itemsController.updateReagent, (req, res) => {
+  res.sendStatus(200);
+});
+router.put('/cells/:id', itemsController.updateCell, (req, res) => {
+  res.sendStatus(200);
+});
+router.put('/equipment/:id', itemsController.updateEquipment, (req, res) => {
   res.sendStatus(200);
 });
 

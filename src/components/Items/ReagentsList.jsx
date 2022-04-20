@@ -2,7 +2,8 @@ import React from 'react';
 import { Spin } from 'antd';
 import styled from 'styled-components';
 import StyledCard from './StyledCard.jsx';
-import DeleteModal from './DeleteModal.jsx';
+import DeleteModal from '../Modals/DeleteModal.jsx';
+import UpdateItem from '../Modals/UpdateItem.jsx';
 
 import { useGetReagentsQuery } from '../../services/items';
 
@@ -40,10 +41,13 @@ const ReagentsList = () => {
             <p>
               <b>Qty:</b> {item.quantity}
             </p>
-            <DeleteModal
-              name={item.name}
-              id={item._id}
-              category="reagents"></DeleteModal>
+            <div style={{ display: 'flex' }}>
+              <UpdateItem id={item._id}></UpdateItem>
+              <DeleteModal
+                name={item.name}
+                id={item._id}
+                category="reagents"></DeleteModal>
+            </div>
           </StyledCard>
         ))}
     </div>

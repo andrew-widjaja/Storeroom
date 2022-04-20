@@ -18,8 +18,17 @@ const { SubMenu } = Menu;
 
 const StyledMenu = styled(Menu)`
   width: 20vw;
-  height: 100vh;
+  height: 150vh;
   position: sticky;
+`;
+
+const Title = styled.h1`
+  color: white;
+  margin: 2rem 1.5rem;
+  font-family: 'MuseoModerno', cursive;
+  font-weight: 600;
+  /* text-align: center; */
+  letter-spacing: 0.1rem;
 `;
 
 const NavContainer = (props) => {
@@ -44,7 +53,7 @@ const NavContainer = (props) => {
           defaultOpenKeys={['sub1']}
           selectedKeys={[current]}
           mode="inline">
-          <Avatar icon={<UserOutlined />} />
+          <Title>storeroom</Title>
           <SubMenu key="sub1" icon={<DatabaseOutlined />} title="Inventory">
             <Menu.Item key="consumables" icon={<PaperClipOutlined />}>
               Consumables

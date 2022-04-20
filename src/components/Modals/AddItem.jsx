@@ -109,9 +109,6 @@ const AddItem = () => {
             size: 'default',
           }}
           size={'default'}>
-          <Form.Item label="Name" required>
-            <Input onChange={handleNameChange} />
-          </Form.Item>
           <Form.Item label="Item category" required>
             <Select onChange={handleCategoryChange}>
               <Select.Option value="consumables">Consumables</Select.Option>
@@ -120,6 +117,11 @@ const AddItem = () => {
               <Select.Option value="equipment">Equipment</Select.Option>
             </Select>
           </Form.Item>
+
+          <Form.Item label="Name" required>
+            <Input onChange={handleNameChange} />
+          </Form.Item>
+
           <Form.Item label="Supplier" required>
             <Input onChange={handleSupplierChange} />
           </Form.Item>
