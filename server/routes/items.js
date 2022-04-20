@@ -33,4 +33,21 @@ router.post('/equipment', itemsController.addEquipment, (req, res) => {
   res.sendStatus(200);
 });
 
+router.delete(
+  '/consumables/:id',
+  itemsController.deleteConsumable,
+  (req, res) => {
+    res.sendStatus(200);
+  }
+);
+router.delete('/reagents/:id', itemsController.deleteReagent, (req, res) => {
+  res.sendStatus(200);
+});
+router.delete('/cells/:id', itemsController.deleteCell, (req, res) => {
+  res.sendStatus(200);
+});
+router.delete('/equipment/:id', itemsController.deleteEquipment, (req, res) => {
+  res.sendStatus(200);
+});
+
 module.exports = router;

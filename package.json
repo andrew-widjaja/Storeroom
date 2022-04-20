@@ -12,6 +12,7 @@
   "author": "Andrew Widjaja",
   "license": "ISC",
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
     "@reduxjs/toolkit": "^1.8.1",
     "antd": "^4.19.5",
     "express": "^4.17.3",

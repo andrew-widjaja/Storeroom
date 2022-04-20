@@ -2,6 +2,7 @@ import React from 'react';
 import { Spin } from 'antd';
 import styled from 'styled-components';
 import StyledCard from './StyledCard.jsx';
+import DeleteModal from './DeleteModal.jsx';
 
 import { useGetCellsQuery } from '../../services/items.js';
 
@@ -45,6 +46,10 @@ const CellLinesList = () => {
             <p>
               <b>Qty:</b> {item.quantity}
             </p>
+            <DeleteModal
+              name={item.name}
+              id={item._id}
+              category="cells"></DeleteModal>
           </StyledCard>
         ))}
     </div>

@@ -108,4 +108,58 @@ itemsController.addEquipment = (req, res, next) => {
     });
 };
 
+// Delete handlers
+itemsController.deleteConsumable = (req, res, next) => {
+  const itemToDeleteId = req.params.id;
+
+  models.Consumable.deleteOne({ _id: itemToDeleteId })
+    .exec()
+    .then(next())
+    .catch((err) => {
+      next({
+        code: 500,
+        error: err,
+      });
+    });
+};
+itemsController.deleteReagent = (req, res, next) => {
+  const itemToDeleteId = req.params.id;
+
+  models.Reagent.deleteOne({ _id: itemToDeleteId })
+    .exec()
+    .then(next())
+    .catch((err) => {
+      next({
+        code: 500,
+        error: err,
+      });
+    });
+};
+itemsController.deleteCell = (req, res, next) => {
+  const itemToDeleteId = req.params.id;
+
+  models.Cell.deleteOne({ _id: itemToDeleteId })
+    .exec()
+    .then(next())
+    .catch((err) => {
+      next({
+        code: 500,
+        error: err,
+      });
+    });
+};
+itemsController.deleteEquipment = (req, res, next) => {
+  const itemToDeleteId = req.params.id;
+
+  models.Equipment.deleteOne({ _id: itemToDeleteId })
+    .exec()
+    .then(next())
+    .catch((err) => {
+      next({
+        code: 500,
+        error: err,
+      });
+    });
+};
+
 module.exports = itemsController;

@@ -5,27 +5,42 @@ export const itemsApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: '/items/',
   }),
+  tagTypes: ['Consumable', 'Reagent', 'Equipment', 'Cell'],
   endpoints: (builder) => ({
     getConsumables: builder.query({
       query: () => `consumables`,
+      providesTags: ['Consumable'],
     }),
     getReagents: builder.query({
       query: () => `reagents`,
+      providesTags: ['Reagent'],
     }),
     getEquipment: builder.query({
       query: () => `equipment`,
+      providesTags: ['Equipment'],
     }),
     getCells: builder.query({
       query: () => `cells`,
+      providesTags: ['Cell'],
     }),
     addItem: builder.mutation({
-      query(body) {
+      query({ category, ...body }) {
         return {
-          url: `${body.category}`,
+          url: `${category}`,
           method: 'POST',
           body,
         };
       },
+      invalidatesTags: ['Consumable', 'Reagent', 'Equipment', 'Cell'],
+    }),
+    deleteItem: builder.mutation({
+      query({ id, category }) {
+        return {
+          url: `${category}/${id}`,
+          method: 'DELETE',
+        };
+      },
+      invalidatesTags: ['Consumable', 'Reagent', 'Equipment', 'Cell'],
     }),
   }),
 });
@@ -36,4 +51,5 @@ export const {
   useGetEquipmentQuery,
   useGetCellsQuery,
   useAddItemMutation,
+  useDeleteItemMutation,
 } = itemsApi;

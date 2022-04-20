@@ -3,13 +3,24 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setDisplay } from './displaySlice';
 import { Menu, Avatar, Affix } from 'antd';
 import {
-  MailOutlined,
-  AppstoreOutlined,
+  ExperimentOutlined,
+  ShoppingCartOutlined,
   SettingOutlined,
   UserOutlined,
+  ToolOutlined,
+  DatabaseOutlined,
+  DeploymentUnitOutlined,
+  PaperClipOutlined,
 } from '@ant-design/icons';
+import styled from 'styled-components';
 
 const { SubMenu } = Menu;
+
+const StyledMenu = styled(Menu)`
+  width: 20vw;
+  height: 100vh;
+  position: sticky;
+`;
 
 const NavContainer = (props) => {
   const dispatch = useDispatch();
@@ -26,21 +37,29 @@ const NavContainer = (props) => {
   return (
     <>
       <Affix offsetTop={0}>
-        <Menu
+        <StyledMenu
           theme={'dark'}
           onClick={handleClick}
-          style={{ width: '20vw', height: '100vh', position: 'sticky' }}
+          // style={{ width: '20vw', height: '100vh', position: 'sticky' }}
           defaultOpenKeys={['sub1']}
           selectedKeys={[current]}
           mode="inline">
           <Avatar icon={<UserOutlined />} />
-          <SubMenu key="sub1" icon={<MailOutlined />} title="Inventory">
-            <Menu.Item key="consumables">Consumables</Menu.Item>
-            <Menu.Item key="reagents">Reagents</Menu.Item>
-            <Menu.Item key="cells">Cell Lines</Menu.Item>
-            <Menu.Item key="equipment">Equipment</Menu.Item>
+          <SubMenu key="sub1" icon={<DatabaseOutlined />} title="Inventory">
+            <Menu.Item key="consumables" icon={<PaperClipOutlined />}>
+              Consumables
+            </Menu.Item>
+            <Menu.Item key="reagents" icon={<ExperimentOutlined />}>
+              Reagents
+            </Menu.Item>
+            <Menu.Item key="cells" icon={<DeploymentUnitOutlined />}>
+              Cell Lines
+            </Menu.Item>
+            <Menu.Item key="equipment" icon={<ToolOutlined />}>
+              Equipment
+            </Menu.Item>
           </SubMenu>
-          <SubMenu key="sub2" icon={<AppstoreOutlined />} title="Order">
+          <SubMenu key="sub2" icon={<ShoppingCartOutlined />} title="Order">
             <Menu.Item key="5">VWR</Menu.Item>
             <Menu.Item key="6">ThermoFisher</Menu.Item>
             {/* <SubMenu key="sub3" title="Submenu"> */}
@@ -57,7 +76,7 @@ const NavContainer = (props) => {
             <Menu.Item key="11">Option 11</Menu.Item>
             <Menu.Item key="12">Option 12</Menu.Item>
           </SubMenu>
-        </Menu>
+        </StyledMenu>
       </Affix>
     </>
   );

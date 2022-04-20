@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Modal, Button, Form, Input, Select, InputNumber } from 'antd';
 import { DownloadOutlined } from '@ant-design/icons';
 import { useAddItemMutation } from '../../services/items.js';
+// import { useGetConsumablesQuery } from '../../services/items.js';
 
 const StyledButton = styled(Button)`
   margin-top: 1rem;
@@ -12,6 +13,7 @@ const StyledButton = styled(Button)`
 const AddItem = () => {
   const [visible, setVisible] = useState(false);
   const [addItem] = useAddItemMutation();
+  // const consumable = useGetConsumablesQuery();
 
   const handleSubmit = async (e, value) => {
     setVisible(false);
@@ -27,11 +29,21 @@ const AddItem = () => {
       lastMaintenance: maintenance,
     };
     await addItem(newItem);
+    // consumable.refetch();
+    // setName();
+    // setItemCategory();
+    // setSupplier();
+    // setDescription();
+    // setQty();
+    // setSpecies();
+    // setFreeze();
+    // setMaintenance();
   };
 
   const [name, setName] = useState();
   const handleNameChange = (e, value) => {
     setName(e.target.value);
+    e.target.value = '';
   };
 
   const [itemCategory, setItemCategory] = useState();

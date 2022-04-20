@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Spin } from 'antd';
+import { Affix, Spin } from 'antd';
 
 import 'antd/dist/antd.css';
 import { SearchBar } from '../Items/SearchBar.jsx';
@@ -25,10 +25,18 @@ const ItemsContainer = () => {
 
   return (
     <Wrapper>
-      <div style={{ display: 'flex' }}>
-        <AddItem></AddItem>
-        <SearchBar></SearchBar>
-      </div>
+      <Affix offsetTop={0}>
+        <div
+          style={{
+            display: 'flex',
+            backgroundColor: '#f5f6fb',
+            width: '80vw',
+            justifyContent: 'center',
+          }}>
+          <AddItem></AddItem>
+          <SearchBar></SearchBar>
+        </div>
+      </Affix>
 
       {display === 'consumables' && (
         <ConsumablesList data={undefined}></ConsumablesList>
