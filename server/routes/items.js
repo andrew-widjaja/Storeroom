@@ -14,11 +14,11 @@ router.get('/consumables', itemsController.getConsumables, (req, res) => {
 router.get('/reagents', itemsController.getReagents, (req, res) => {
   res.status(200).json(res.locals.allReagents);
 });
-router.get('/cells', (req, res) => {
-  res.json('here are all of your cells!');
+router.get('/cells', itemsController.getCells, (req, res) => {
+  res.status(200).json(res.locals.allCells);
 });
-router.get('/equipment', (req, res) => {
-  res.json('here are all of your equipment!');
+router.get('/equipment', itemsController.getEquipment, (req, res) => {
+  res.status(200).json(res.locals.allEquipment);
 });
 
 module.exports = router;

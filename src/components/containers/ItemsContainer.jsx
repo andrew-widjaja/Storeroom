@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Spin } from 'antd';
-import { SearchBar } from '../Items/SearchBar.jsx';
 
 import 'antd/dist/antd.css';
+import { SearchBar } from '../Items/SearchBar.jsx';
 import AddItem from '../Items/AddItem.jsx';
 import ConsumablesList from '../Items/ConsumablesList.jsx';
 import ReagentsList from '../Items/ReagentsList.jsx';
@@ -20,14 +20,8 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const StyledSpin = styled(Spin)`
-  margin: 2rem;
-`;
-
 const ItemsContainer = () => {
   const display = useSelector((state) => state.display.display);
-  // const { data, error, isLoading, isSuccess, isError } =
-  //   useGetConsumablesQuery();
 
   return (
     <Wrapper>
@@ -35,14 +29,6 @@ const ItemsContainer = () => {
         <AddItem></AddItem>
         <SearchBar></SearchBar>
       </div>
-
-      {/* <div>
-        {isLoading && <StyledSpin></StyledSpin>}
-        {isError && error.message}
-        {isSuccess &&
-          data &&
-          data.map((item) => <div key={item._id}>{item.name}</div>)}
-      </div> */}
 
       {display === 'consumables' && (
         <ConsumablesList data={undefined}></ConsumablesList>

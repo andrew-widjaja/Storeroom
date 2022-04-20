@@ -41,6 +41,7 @@ const cellSchema = new Schema({
   species: String,
   description: String,
   lastFreeze: String,
+  quantity: Number,
 });
 const Cell = mongoose.model('Cell', cellSchema);
 

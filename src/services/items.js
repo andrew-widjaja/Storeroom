@@ -12,7 +12,18 @@ export const itemsApi = createApi({
     getReagents: builder.query({
       query: () => `reagents`,
     }),
+    getEquipment: builder.query({
+      query: () => `equipment`,
+    }),
+    getCells: builder.query({
+      query: () => `cells`,
+    }),
   }),
 });
 
-export const { useGetConsumablesQuery, useGetReagentsQuery } = itemsApi;
+export const {
+  useGetConsumablesQuery,
+  useGetReagentsQuery,
+  useGetEquipmentQuery,
+  useGetCellsQuery,
+} = itemsApi;
