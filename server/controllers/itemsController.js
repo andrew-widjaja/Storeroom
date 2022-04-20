@@ -59,5 +59,53 @@ itemsController.getCells = (req, res, next) => {
       });
     });
 };
+itemsController.addConsumable = (req, res, next) => {
+  console.log(req.body);
+  models.Consumable.create(req.body)
+    .exec()
+    .then(next())
+    .catch((err) => {
+      next({
+        code: 500,
+        error: err,
+      });
+    });
+};
+itemsController.addReagent = (req, res, next) => {
+  console.log(req.body);
+  models.Reagent.create(req.body)
+    .exec()
+    .then(next())
+    .catch((err) => {
+      next({
+        code: 500,
+        error: err,
+      });
+    });
+};
+itemsController.addCell = (req, res, next) => {
+  console.log(req.body);
+  models.Cell.create(req.body)
+    .exec()
+    .then(next())
+    .catch((err) => {
+      next({
+        code: 500,
+        error: err,
+      });
+    });
+};
+itemsController.addEquipment = (req, res, next) => {
+  console.log(req.body);
+  models.Equipment.create(req.body)
+    .exec()
+    .then(next())
+    .catch((err) => {
+      next({
+        code: 500,
+        error: err,
+      });
+    });
+};
 
 module.exports = itemsController;

@@ -18,6 +18,15 @@ export const itemsApi = createApi({
     getCells: builder.query({
       query: () => `cells`,
     }),
+    addItem: builder.mutation({
+      query(body) {
+        return {
+          url: `${body.category}`,
+          method: 'POST',
+          body,
+        };
+      },
+    }),
   }),
 });
 
@@ -26,4 +35,5 @@ export const {
   useGetReagentsQuery,
   useGetEquipmentQuery,
   useGetCellsQuery,
+  useAddItemMutation,
 } = itemsApi;

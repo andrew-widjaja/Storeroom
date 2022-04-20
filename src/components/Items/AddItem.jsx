@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Modal, Button, Form, Input, Select, InputNumber } from 'antd';
 import { DownloadOutlined } from '@ant-design/icons';
+import { useAddItemMutation } from '../../services/items.js';
 
 const StyledButton = styled(Button)`
   margin-top: 1rem;
@@ -10,20 +11,61 @@ const StyledButton = styled(Button)`
 
 const AddItem = () => {
   const [visible, setVisible] = useState(false);
-  const [componentSize, setComponentSize] = useState('default');
-  const [itemCategory, setItemCategory] = useState();
+  const [addItem] = useAddItemMutation();
 
-  const onFormLayoutChange = ({ size }) => {
-    setComponentSize(size);
-  };
-
-  const handleSubmit = () => {
+  const handleSubmit = async (e, value) => {
     setVisible(false);
+    const newItem = {
+      name: name,
+      category: itemCategory,
+      supplier: supplier,
+      catalog: catalog,
+      description: description,
+      quantity: qty,
+      species: species,
+      lastFreeze: freeze,
+      lastMaintenance: maintenance,
+    };
+    await addItem(newItem);
   };
 
-  const handleChange = (event, value) => {
+  const [name, setName] = useState();
+  const handleNameChange = (e, value) => {
+    setName(e.target.value);
+  };
+
+  const [itemCategory, setItemCategory] = useState();
+  const handleCategoryChange = (e, value) => {
     setItemCategory(value.value);
-    console.log(itemCategory);
+  };
+
+  const [supplier, setSupplier] = useState();
+  const handleSupplierChange = (e) => {
+    setSupplier(e.target.value);
+  };
+  const [catalog, setCatalog] = useState();
+  const handleCatalogChange = (e) => {
+    setCatalog(e.target.value);
+  };
+  const [species, setSpecies] = useState();
+  const handleSpeciesChange = (e) => {
+    setSpecies(e.target.value);
+  };
+  const [description, setDescription] = useState();
+  const handleDescriptionChange = (e) => {
+    setDescription(e.target.value);
+  };
+  const [freeze, setFreeze] = useState();
+  const handleFreezeChange = (e) => {
+    setFreeze(e.target.value);
+  };
+  const [maintenance, setMaintenance] = useState();
+  const handleMaintenanceChange = (e) => {
+    setMaintenance(e.target.value);
+  };
+  const [qty, setQty] = useState();
+  const handleQtyChange = (e) => {
+    setQty(e);
   };
 
   return (
@@ -52,15 +94,14 @@ const AddItem = () => {
           }}
           layout="horizontal"
           initialValues={{
-            size: componentSize,
+            size: 'default',
           }}
-          onValuesChange={onFormLayoutChange}
-          size={componentSize}>
+          size={'default'}>
           <Form.Item label="Name" required>
-            <Input />
+            <Input onChange={handleNameChange} />
           </Form.Item>
           <Form.Item label="Item category" required>
-            <Select onChange={handleChange}>
+            <Select onChange={handleCategoryChange}>
               <Select.Option value="consumables">Consumables</Select.Option>
               <Select.Option value="reagents">Reagents</Select.Option>
               <Select.Option value="cells">Cell Lines</Select.Option>
@@ -68,32 +109,34 @@ const AddItem = () => {
             </Select>
           </Form.Item>
           <Form.Item label="Supplier" required>
-            <Input />
+            <Input onChange={handleSupplierChange} />
           </Form.Item>
           {itemCategory === 'cells' && (
             <Form.Item label="Species" required>
-              <Input />
+              <Input onChange={handleSpeciesChange} />
             </Form.Item>
           )}
           <Form.Item label="Catalog No." required>
-            <Input />
+            <Input onChange={handleCatalogChange} />
           </Form.Item>
           <Form.Item label="Description">
-            <Input />
+            <Input onChange={handleDescriptionChange} />
           </Form.Item>
           {itemCategory === 'cells' && (
             <Form.Item label="Last freeze" required>
-              <Input />
+              <Input onChange={handleFreezeChange} />
             </Form.Item>
           )}
           {itemCategory === 'equipment' && (
             <Form.Item label="Last maintenance" required>
-              <Input />
+              <Input onChange={handleMaintenanceChange} />
             </Form.Item>
           )}
-          <Form.Item label="Quantity" required>
-            <InputNumber />
-          </Form.Item>
+          {itemCategory !== 'equipment' && (
+            <Form.Item label="Quantity" required>
+              <InputNumber onChange={handleQtyChange} name="qty" />
+            </Form.Item>
+          )}
         </Form>
       </Modal>
     </div>
