@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setDisplay } from './displaySlice';
-import { Menu, Avatar, Affix } from 'antd';
+import { setLogin } from '../../loginSlice';
+import { Menu, Avatar, Affix, Button } from 'antd';
 import {
   ExperimentOutlined,
   ShoppingCartOutlined,
@@ -28,7 +29,7 @@ const Title = styled.h1`
   font-family: 'MuseoModerno', cursive;
   font-weight: 600;
   /* text-align: center; */
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.2rem;
 `;
 
 const NavContainer = (props) => {
@@ -85,6 +86,13 @@ const NavContainer = (props) => {
             <Menu.Item key="11">Option 11</Menu.Item>
             <Menu.Item key="12">Option 12</Menu.Item>
           </SubMenu>
+          <Button
+            danger
+            onClick={() => {
+              dispatch(setLogin(false));
+            }}>
+            Sign out
+          </Button>
         </StyledMenu>
       </Affix>
     </>
