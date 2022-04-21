@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import { setLogin } from '../../loginSlice';
+import { setUser } from './userSlice';
 
 const clientId =
   '870413778352-3vtpln31uiods5s2v0epiioj72i624k8.apps.googleusercontent.com';
@@ -13,11 +14,11 @@ function LoginOAuth() {
   const dispatch = useDispatch();
 
   const onLoginSuccess = (res) => {
-    console.log('Login Success:', res.profileObj);
+    console.log('Login Success:', res.profileObj.name);
     setShowloginButton(false);
     setShowlogoutButton(true);
     dispatch(setLogin(true));
-    console.log(loggedIn);
+    dispatch(setUser(res.profileObj.name));
   };
 
   const onLoginFailure = (res) => {

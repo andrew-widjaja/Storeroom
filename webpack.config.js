@@ -40,23 +40,17 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.js$/,
+        enforce: 'pre',
+        use: ['source-map-loader'],
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './index.html',
     }),
-    // {
-    //   plugin: CracoLessPlugin,
-    //   options: {
-    //     lessLoaderOptions: {
-    //       lessOptions: {
-    //         // modifyVars: { '@primary-color': '#1DA57A' },
-    //         javascriptEnabled: true,
-    //       },
-    //     },
-    //   },
-    // },
   ],
   devServer: {
     static: {

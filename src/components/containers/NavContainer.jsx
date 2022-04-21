@@ -49,6 +49,7 @@ const SignOutButton = styled(Button)`
 
 const NavContainer = (props) => {
   const dispatch = useDispatch();
+  const currentUser = useSelector((state) => state.user.user);
 
   // Set state for current selection highlighting
   const [current, setCurrent] = useState(1);
@@ -102,7 +103,7 @@ const NavContainer = (props) => {
             <Menu.Item key="6">ThermoFisher</Menu.Item>
             <Menu.Item key="7">Barker Hall</Menu.Item>
           </SubMenu>
-          <SubMenu icon={<UserOutlined />} key="sub4" title="Profile">
+          <SubMenu icon={<UserOutlined />} key="sub4" title={currentUser}>
             <Menu.Item icon={<HeartOutlined />} key="9">
               Favorites
             </Menu.Item>

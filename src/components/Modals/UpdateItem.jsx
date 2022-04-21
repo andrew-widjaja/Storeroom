@@ -109,35 +109,35 @@ const UpdateItem = (props) => {
               <Select.Option value="equipment">Equipment</Select.Option>
             </Select>
           </Form.Item>
-          <Form.Item label="Name" required>
+          <Form.Item label="Name">
             <Input onChange={handleNameChange} />
           </Form.Item>
-          <Form.Item label="Supplier" required>
+          <Form.Item label="Supplier">
             <Input onChange={handleSupplierChange} />
           </Form.Item>
           {itemCategory === 'cells' && (
-            <Form.Item label="Species" required>
+            <Form.Item label="Species">
               <Input onChange={handleSpeciesChange} />
             </Form.Item>
           )}
-          <Form.Item label="Catalog No." required>
+          <Form.Item label="Catalog No.">
             <Input onChange={handleCatalogChange} />
           </Form.Item>
           <Form.Item label="Description">
             <Input onChange={handleDescriptionChange} />
           </Form.Item>
           {itemCategory === 'cells' && (
-            <Form.Item label="Last freeze" required>
+            <Form.Item label="Last freeze">
               <Input onChange={handleFreezeChange} />
             </Form.Item>
           )}
           {itemCategory === 'equipment' && (
-            <Form.Item label="Last maintenance" required>
+            <Form.Item label="Last maintenance">
               <Input onChange={handleMaintenanceChange} />
             </Form.Item>
           )}
           {itemCategory !== 'equipment' && (
-            <Form.Item label="Quantity" required>
+            <Form.Item label="Quantity">
               <InputNumber onChange={handleQtyChange} name="qty" />
             </Form.Item>
           )}
