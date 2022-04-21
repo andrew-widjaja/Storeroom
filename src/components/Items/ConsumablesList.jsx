@@ -116,7 +116,7 @@ const ConsumablesList = (props) => {
           );
         })}
       {foundItems && foundItems.length === 0 && (
-        <SearchInvalid onClick={filter}></SearchInvalid>
+        <SearchInvalid filter={filter}></SearchInvalid>
       )}
     </div>
   );

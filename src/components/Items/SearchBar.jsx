@@ -10,7 +10,6 @@ export const SearchBar = () => {
   const dispatch = useDispatch();
   const filter = (e) => {
     dispatch(setFilter(e.target.value));
-    console.log(e.target.value);
   };
 
   // const filter = (e) => console.log(e.target.value);
