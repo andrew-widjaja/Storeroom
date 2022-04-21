@@ -13,7 +13,7 @@ const StyledImage = styled.img`
 const Wrapper = styled.div`
   width: 100vw;
   display: flex;
-  background-color: #001529;
+  background-color: #00213f;
 `;
 
 const LoginWrapper = styled.div`
@@ -50,6 +50,8 @@ const GoogleSignIn = styled.div`
   width: 40px;
 `;
 
+console.log(document.cookie);
+
 const LoginContainer = () => {
   const dispatch = useDispatch();
 
@@ -63,20 +65,37 @@ const LoginContainer = () => {
     });
   }
 
+  const settings = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+  };
+  const signIn = async () => {
+    const res = await fetch('/signup', settings);
+    const data = await res.json();
+    console.log(data);
+  };
+
   return (
     <Wrapper>
       <StyledImage src="https://images.unsplash.com/photo-1581091007718-0c50d599bfd0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzl8fHNjaWVuY2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"></StyledImage>
       <LoginWrapper>
         <Title>storeroom</Title>
         <SubTitle>take control over your inventory</SubTitle>
-
         <button onClick={handleLogin}>Sign in</button>
         <GoogleSignIn
           className="g-signin2"
           data-onsuccess="onSignIn"></GoogleSignIn>
+
         <a href="/" onClick={signOut}>
           Sign out
         </a>
+        {/* Sign up
+        <input name="username" type="text" placeholder="username"></input>
+        <input name="password" type="password" placeholder="password"></input>
+        <button onClick={signIn}>Create User</button> */}
       </LoginWrapper>
     </Wrapper>
   );

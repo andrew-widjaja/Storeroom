@@ -23,9 +23,7 @@ userController.verifyUser = async (req, res, next) => {
     const { username, password } = req.body;
     const userData = await User.find({
       username: username,
-      // password: password,
     });
-    console.log(userData);
 
     const isVerified = await bcrypt.compare(password, userData.password);
 

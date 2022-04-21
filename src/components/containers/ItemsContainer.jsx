@@ -11,6 +11,7 @@ import CellLinesList from '../Items/CellLinesList.jsx';
 import EquipmentList from '../Items/EquipmentList.jsx';
 
 import { useSelector } from 'react-redux';
+import DefaultPage from '../Items/DefaultPage.jsx';
 // import { useGetConsumablesQuery } from '../../services/items.js';
 
 const Wrapper = styled.div`
@@ -37,7 +38,7 @@ const ItemsContainer = () => {
           <SearchBar></SearchBar>
         </div>
       </Affix>
-
+      {display === 'default' && <DefaultPage></DefaultPage>}
       {display === 'consumables' && (
         <ConsumablesList data={undefined}></ConsumablesList>
       )}

@@ -21,15 +21,28 @@ const StyledMenu = styled(Menu)`
   width: 20vw;
   height: 150vh;
   position: sticky;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Title = styled.h1`
-  color: white;
+  color: #e4e4e4;
   margin: 2rem 1.5rem;
   font-family: 'MuseoModerno', cursive;
   font-weight: 600;
   /* text-align: center; */
   letter-spacing: 0.2rem;
+`;
+
+const SignOutButton = styled(Button)`
+  background: none;
+  color: #1890ff;
+  border-color: #1890ff;
+  /* margin: 19rem 2rem 0 2rem; */
+  position: absolute;
+  top: 93vh;
+  left: 25px;
+  width: 10vw;
 `;
 
 const NavContainer = (props) => {
@@ -44,6 +57,14 @@ const NavContainer = (props) => {
     dispatch(setDisplay(e.key));
   };
 
+  const handleSignOut = () => {
+    dispatch(setLogin(false));
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  };
+
   return (
     <>
       <Affix offsetTop={0}>
@@ -54,7 +75,9 @@ const NavContainer = (props) => {
           defaultOpenKeys={['sub1']}
           selectedKeys={[current]}
           mode="inline">
-          <Title>storeroom</Title>
+          <Title key="default" onClick={handleClick}>
+            storeroom
+          </Title>
           <SubMenu key="sub1" icon={<DatabaseOutlined />} title="Inventory">
             <Menu.Item key="consumables" icon={<PaperClipOutlined />}>
               Consumables
@@ -77,22 +100,15 @@ const NavContainer = (props) => {
             {/* <Menu.Item key="8">Option 8</Menu.Item> */}
             {/* </SubMenu> */}
           </SubMenu>
-          <SubMenu
-            key="sub4"
-            icon={<SettingOutlined />}
-            title="Navigation Three">
-            <Menu.Item key="9">Option 9</Menu.Item>
-            <Menu.Item key="10">Option 10</Menu.Item>
-            <Menu.Item key="11">Option 11</Menu.Item>
-            <Menu.Item key="12">Option 12</Menu.Item>
+          <SubMenu key="sub4" icon={<SettingOutlined />} title="Profile">
+            <Menu.Item key="9">Favorites</Menu.Item>
+            <Menu.Item key="10">Settings</Menu.Item>
+            <Menu.Item key="11">Reminders</Menu.Item>
+            {/* <Menu.Item key="12">Option 12</Menu.Item> */}
           </SubMenu>
-          <Button
-            danger
-            onClick={() => {
-              dispatch(setLogin(false));
-            }}>
+          <SignOutButton type="round" onClick={handleSignOut}>
             Sign out
-          </Button>
+          </SignOutButton>
         </StyledMenu>
       </Affix>
     </>

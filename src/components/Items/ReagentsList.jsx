@@ -22,34 +22,40 @@ const ReagentsList = () => {
       {isError && error.message}
       {isSuccess &&
         data &&
-        data.map((item) => (
-          <StyledCard
-            key={item._id}
-            hoverable
-            // title={item.name}
-            bordered={false}>
-            <h3>{item.name}</h3>
-            <p>
-              <b>Supplier:</b> {item.supplier}
-            </p>
-            <p>
-              <b>Catalog No.:</b> {item.catalog}
-            </p>
-            <p>
-              <b>Description:</b> {item.description}
-            </p>
-            <p>
-              <b>Qty:</b> {item.quantity}
-            </p>
-            <div style={{ display: 'flex' }}>
-              <UpdateItem id={item._id}></UpdateItem>
-              <DeleteModal
-                name={item.name}
-                id={item._id}
-                category="reagents"></DeleteModal>
-            </div>
-          </StyledCard>
-        ))}
+        data.map((item) => {
+          const isLow = item.quantity < 10;
+          return (
+            <StyledCard
+              key={item._id}
+              hoverable
+              // title={item.name}
+              bordered={false}
+              style={{
+                backgroundColor: isLow ? '#f8bdbd' : 'none',
+              }}>
+              <h3>{item.name}</h3>
+              <p>
+                <b>Supplier:</b> {item.supplier}
+              </p>
+              <p>
+                <b>Catalog No.:</b> {item.catalog}
+              </p>
+              <p>
+                <b>Description:</b> {item.description}
+              </p>
+              <p>
+                <b>Qty:</b> {item.quantity}
+              </p>
+              <div style={{ display: 'flex' }}>
+                <UpdateItem id={item._id}></UpdateItem>
+                <DeleteModal
+                  name={item.name}
+                  id={item._id}
+                  category="reagents"></DeleteModal>
+              </div>
+            </StyledCard>
+          );
+        })}
     </div>
   );
 };
