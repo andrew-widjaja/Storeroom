@@ -9,10 +9,11 @@ Research labs contain hundreds, if not thousands, of supplies and equipment. The
 Storeroom is a lab supply management application that makes it easier to track and manage everything within a lab. This way, scientists can focus more on the science, and less on the logistics.
 
 ## Current features
-- Uploading new items
-- Updating and deleting current items
-- Filtering your items
 - Secure sign-in with Google
+- Uploading, updating and deleting items
+- Search-filtering your items
+- Low item quantity reminders
+- Clean and intuitive UI
 
 ## Demo
 ![create](https://user-images.githubusercontent.com/24427237/164559465-320d893b-d645-43c0-a2a1-602cc74685c1.gif)
@@ -20,7 +21,7 @@ Storeroom is a lab supply management application that makes it easier to track a
 ![filtering](https://user-images.githubusercontent.com/24427237/164559770-54decaec-996c-4dca-b41e-f8ca25ccaec7.gif)
 
 
-## Key technologies
+## Key technologies used
 
 - <a href="https://reactjs.org/docs/getting-started.html">React</a>
 - <a href="https://redux-toolkit.js.org/">Redux Toolkit</a> and <a href="https://redux-toolkit.js.org/rtk-query/overview">RTK Query</a>
