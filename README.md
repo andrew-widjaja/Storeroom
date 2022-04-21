@@ -10,6 +10,7 @@ Storeroom is a lab supply management application that makes it easier to track a
 
 ## Key technologies
 
+- <a href="https://reactjs.org/docs/getting-started.html">React</a>
 - React
 - Redux Toolkit and RTK Query
 - MongoDB
