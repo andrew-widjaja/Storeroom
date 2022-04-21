@@ -7,7 +7,6 @@ const FormContainer = () => {
     <div style={{ display: 'flex' }}>
       <AddItem></AddItem>
       <SearchBar></SearchBar>
-      test
     </div>
   );
 };
