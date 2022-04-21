@@ -47,7 +47,6 @@ const ItemsContainer = () => {
       {display === 'equipment' && (
         <EquipmentList data={undefined}></EquipmentList>
       )}
-      {/* {display === 'default' && <StyledSpin></StyledSpin>} */}
     </Wrapper>
   );
 };

@@ -2,12 +2,13 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { setLogin } from '../../loginSlice';
+import { Button } from 'antd';
 
 const StyledImage = styled.img`
   width: 60vw;
   height: 100vh;
   object-fit: cover;
-  box-shadow: 5px 5px 15px black;
+  box-shadow: 8px 10px 20px black;
 `;
 
 const Wrapper = styled.div`
@@ -22,6 +23,7 @@ const LoginWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 `;
 
 const Title = styled.h1`
@@ -47,7 +49,15 @@ const SubTitle = styled.h1`
   letter-spacing: 0.05rem;
 `;
 const GoogleSignIn = styled.div`
-  width: 40px;
+  width: 100px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+const GuestLoginBtn = styled(Button)`
+  width: 15vw;
+  margin: 1rem 0;
 `;
 
 console.log(document.cookie);
@@ -84,7 +94,7 @@ const LoginContainer = () => {
       <LoginWrapper>
         <Title>storeroom</Title>
         <SubTitle>take control over your inventory</SubTitle>
-        <button onClick={handleLogin}>Sign in</button>
+        <GuestLoginBtn onClick={handleLogin}>Guest Login</GuestLoginBtn>
         <GoogleSignIn
           className="g-signin2"
           data-onsuccess="onSignIn"></GoogleSignIn>

@@ -30,9 +30,6 @@ const SubText = styled.p`
 const DefaultPage = () => {
   return (
     <Wrapper>
-      {/* <Image src="https://cdn-icons-png.flaticon.com/512/7307/7307974.png" />
-      <Image src="https://cdn-icons-png.flaticon.com/512/2825/2825867.png" />
-      <Image src="https://cdn-icons.flaticon.com/png/512/3045/premium/3045670.png?token=exp=1650507679~hmac=a7ddb50ecbedf8e48c78380160f13cfa" /> */}
       <Image src="https://cdn-icons-png.flaticon.com/512/6552/6552495.png" />
       <MainText>welcome to your storeroom</MainText>
       <SubText>click on the side navigation to begin</SubText>

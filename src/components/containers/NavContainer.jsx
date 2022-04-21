@@ -12,6 +12,8 @@ import {
   DatabaseOutlined,
   DeploymentUnitOutlined,
   PaperClipOutlined,
+  BellOutlined,
+  HeartOutlined,
 } from '@ant-design/icons';
 import styled from 'styled-components';
 
@@ -75,7 +77,10 @@ const NavContainer = (props) => {
           defaultOpenKeys={['sub1']}
           selectedKeys={[current]}
           mode="inline">
-          <Title key="default" onClick={handleClick}>
+          <Title
+            onClick={() => {
+              dispatch(setDisplay('default'));
+            }}>
             storeroom
           </Title>
           <SubMenu key="sub1" icon={<DatabaseOutlined />} title="Inventory">
@@ -95,16 +100,18 @@ const NavContainer = (props) => {
           <SubMenu key="sub2" icon={<ShoppingCartOutlined />} title="Order">
             <Menu.Item key="5">VWR</Menu.Item>
             <Menu.Item key="6">ThermoFisher</Menu.Item>
-            {/* <SubMenu key="sub3" title="Submenu"> */}
             <Menu.Item key="7">Barker Hall</Menu.Item>
-            {/* <Menu.Item key="8">Option 8</Menu.Item> */}
-            {/* </SubMenu> */}
           </SubMenu>
-          <SubMenu key="sub4" icon={<SettingOutlined />} title="Profile">
-            <Menu.Item key="9">Favorites</Menu.Item>
-            <Menu.Item key="10">Settings</Menu.Item>
-            <Menu.Item key="11">Reminders</Menu.Item>
-            {/* <Menu.Item key="12">Option 12</Menu.Item> */}
+          <SubMenu icon={<UserOutlined />} key="sub4" title="Profile">
+            <Menu.Item icon={<HeartOutlined />} key="9">
+              Favorites
+            </Menu.Item>
+            <Menu.Item icon={<SettingOutlined />} key="10">
+              Settings
+            </Menu.Item>
+            <Menu.Item icon={<BellOutlined />} key="11">
+              Reminders
+            </Menu.Item>
           </SubMenu>
           <SignOutButton type="round" onClick={handleSignOut}>
             Sign out
