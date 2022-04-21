@@ -11,8 +11,7 @@ Storeroom is a lab supply management application that makes it easier to track a
 ## Key technologies
 
 - <a href="https://reactjs.org/docs/getting-started.html">React</a>
-- React
-- Redux Toolkit and RTK Query
-- MongoDB
-- OAuth 2.0
-- Ant Design - UI component library
+- <a href="https://redux-toolkit.js.org/">Redux Toolkit</a> and <a href="https://redux-toolkit.js.org/rtk-query/overview">RTK Query</a>
+- <a href="https://www.mongodb.com/">MongoDB</a>
+- <a href="https://developers.google.com/identity/protocols/oauth2">OAuth 2.0</a>
+- <a href="https://ant.design/docs/react/introduce">Ant Design - UI component library</a>
