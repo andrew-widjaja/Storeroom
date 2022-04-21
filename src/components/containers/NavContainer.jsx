@@ -104,7 +104,7 @@ const NavContainer = (props) => {
             <Menu.Item key="7">Barker Hall</Menu.Item>
           </SubMenu>
           <SubMenu icon={<UserOutlined />} key="sub4" title={currentUser}>
-            <Menu.Item icon={<HeartOutlined />} key="9">
+            <Menu.Item icon={<HeartOutlined />} key="favorites">
               Favorites
             </Menu.Item>
             <Menu.Item icon={<SettingOutlined />} key="10">

@@ -12,6 +12,7 @@ import EquipmentList from '../Items/EquipmentList.jsx';
 
 import { useSelector } from 'react-redux';
 import DefaultPage from '../Items/DefaultPage.jsx';
+import TechnicalChallenges from '../Items/TechnicalChallenges.jsx';
 // import { useGetConsumablesQuery } from '../../services/items.js';
 
 const Wrapper = styled.div`
@@ -47,6 +48,7 @@ const ItemsContainer = () => {
       {display === 'equipment' && (
         <EquipmentList data={undefined}></EquipmentList>
       )}
+      {display === 'favorites' && <TechnicalChallenges></TechnicalChallenges>}
     </Wrapper>
   );
 };
