@@ -60,11 +60,11 @@ const NavContainer = (props) => {
   };
 
   const handleSignOut = () => {
-    dispatch(setLogin(false));
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
       console.log('User signed out.');
     });
+    dispatch(setLogin(false));
   };
 
   return (
@@ -113,7 +113,7 @@ const NavContainer = (props) => {
               Reminders
             </Menu.Item>
           </SubMenu>
-          <SignOutButton type="round" onClick={handleSignOut}>
+          <SignOutButton href="/" type="round" onClick={handleSignOut}>
             Sign out
           </SignOutButton>
         </StyledMenu>

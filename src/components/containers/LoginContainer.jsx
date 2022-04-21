@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { setLogin } from '../../loginSlice';
 import { Button } from 'antd';
+import LoginOAuth from './LoginOAuth.jsx';
 
 const StyledImage = styled.img`
   width: 60vw;
@@ -39,7 +40,7 @@ const Title = styled.h1`
 `;
 const SubTitle = styled.h1`
   margin: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 1.7rem;
   padding: 0;
   color: #c5c5c5;
   font-size: 1.5rem;
@@ -48,16 +49,17 @@ const SubTitle = styled.h1`
   font-style: italic;
   letter-spacing: 0.05rem;
 `;
-const GoogleSignIn = styled.div`
-  width: 100px;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
 const GuestLoginBtn = styled(Button)`
-  width: 15vw;
+  width: 12vw;
+  color: #c5c5c5;
+  background-color: #00213f;
+  /* margin: 1rem 0; */
+`;
+const StyledP = styled.p`
+  color: #c5c5c5;
   margin: 1rem 0;
+  font-family: 'Archivo', sans-serif;
+  font-size: 1rem;
 `;
 
 console.log(document.cookie);
@@ -94,18 +96,11 @@ const LoginContainer = () => {
       <LoginWrapper>
         <Title>storeroom</Title>
         <SubTitle>take control over your inventory</SubTitle>
-        <GuestLoginBtn onClick={handleLogin}>Guest Login</GuestLoginBtn>
-        <GoogleSignIn
-          className="g-signin2"
-          data-onsuccess="onSignIn"></GoogleSignIn>
-
-        <a href="/" onClick={signOut}>
-          Sign out
-        </a>
-        {/* Sign up
-        <input name="username" type="text" placeholder="username"></input>
-        <input name="password" type="password" placeholder="password"></input>
-        <button onClick={signIn}>Create User</button> */}
+        <LoginOAuth></LoginOAuth>
+        <StyledP>-------- or --------</StyledP>
+        <GuestLoginBtn type="round" onClick={handleLogin}>
+          Sign In as a Guest
+        </GuestLoginBtn>
       </LoginWrapper>
     </Wrapper>
   );
