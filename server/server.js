@@ -24,7 +24,7 @@ app.post(
   (req, res) => {
     // what should happen here on successful sign up?
     // res.redirect('/');
-    console.log(res.locals.ssid);
+    // console.log(res.locals.ssid);
     // res.status(200).json(res.locals.ssid);
   }
 );

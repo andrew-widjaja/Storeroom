@@ -63,7 +63,6 @@ itemsController.getCells = (req, res, next) => {
 
 // POST MIDDLEWARE
 itemsController.addConsumable = (req, res, next) => {
-  console.log(req.body);
   models.Consumable.create(req.body)
     .exec()
     .then(next())
@@ -75,7 +74,6 @@ itemsController.addConsumable = (req, res, next) => {
     });
 };
 itemsController.addReagent = (req, res, next) => {
-  console.log(req.body);
   models.Reagent.create(req.body)
     .exec()
     .then(next())
@@ -87,7 +85,6 @@ itemsController.addReagent = (req, res, next) => {
     });
 };
 itemsController.addCell = (req, res, next) => {
-  console.log(req.body);
   models.Cell.create(req.body)
     .exec()
     .then(next())
@@ -99,7 +96,6 @@ itemsController.addCell = (req, res, next) => {
     });
 };
 itemsController.addEquipment = (req, res, next) => {
-  console.log(req.body);
   models.Equipment.create(req.body)
     .exec()
     .then(next())

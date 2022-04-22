@@ -8,8 +8,6 @@ sessionController.isLoggedIn = async (req, res, next) => {
     if (verify.length) {
       return next();
     } else {
-      // console.log('redirecting');
-
       res.redirect('/signup');
     }
   } catch (err) {

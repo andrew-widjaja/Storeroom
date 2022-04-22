@@ -62,8 +62,6 @@ const StyledP = styled.p`
   font-size: 1rem;
 `;
 
-console.log(document.cookie);
-
 const LoginContainer = () => {
   const dispatch = useDispatch();
 
@@ -83,11 +81,6 @@ const LoginContainer = () => {
       'Content-Type': 'application/json',
       Accept: 'application/json',
     },
-  };
-  const signIn = async () => {
-    const res = await fetch('/signup', settings);
-    const data = await res.json();
-    console.log(data);
   };
 
   return (
