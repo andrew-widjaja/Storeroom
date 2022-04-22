@@ -12,7 +12,7 @@ Storeroom is a lab supply management application that makes it easier to track a
 - Secure sign-in with Google
 - Uploading, updating and deleting items
 - Search-filtering your items
-- Low item quantity reminders
+- Alerts for low item quantity
 - Clean and intuitive UI
 
 ## Demo
@@ -25,6 +25,7 @@ Storeroom is a lab supply management application that makes it easier to track a
 
 - <a href="https://reactjs.org/docs/getting-started.html">React</a>
 - <a href="https://redux-toolkit.js.org/">Redux Toolkit</a> and <a href="https://redux-toolkit.js.org/rtk-query/overview">RTK Query</a>
+- <a href="https://expressjs.com/">NodeJS/Express</a>
 - <a href="https://www.mongodb.com/">MongoDB</a>
 - <a href="https://developers.google.com/identity/protocols/oauth2">OAuth 2.0</a>
 - <a href="https://ant.design/docs/react/introduce">Ant Design - UI component library</a>
