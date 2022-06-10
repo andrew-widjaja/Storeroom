@@ -1,4 +1,4 @@
-<img width="423" alt="Screen Shot 2022-04-20 at 12 14 40 PM" src="https://user-images.githubusercontent.com/24427237/164546119-7505e5cf-44ff-48c1-8874-9f44474f9798.png">
+<img width="423" alt="Storeroom Logo" src="https://user-images.githubusercontent.com/24427237/164546119-7505e5cf-44ff-48c1-8874-9f44474f9798.png">
 
 ## The problem
 
